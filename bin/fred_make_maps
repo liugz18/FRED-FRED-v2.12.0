@@ -10,10 +10,10 @@ my $api_key = $ENV{FRED_API_KEY};
 $api_key = "none" if not $api_key;
 # print "api_key = '$api_key'\n";
 
-my $census_tracts = 0;
+my $census_tracts = 1;
 my $country = "usa";
 my $disease_id = 0;
-my $filled = 0;
+my $filled = 1;
 my $help = 0;
 my $key = "";
 my $lightness = 0;
@@ -186,15 +186,16 @@ my $max_ar = 0.0;
 my @ar = ();
 
 if ($country eq "usa" and $census_tracts eq 1) {
+  print "make map\n";
   make_census_tract_map_data();
   }
   elsif ( $hazel eq 1) {
-	#print "make hazel map\n";
+	print "make hazel map\n";
 	make_hazel_map_data();
 	}
 	#}
 	else {
-	#print "make county map\n";
+	print "make county map\n";
   	make_county_map_data($run);
 	}
 	$max_ar = $max if $max;
@@ -220,7 +221,7 @@ if ((scalar @fips eq 1) and $google) {
 if ($country eq "usa" and $census_tracts eq 1) {
   my $shapedir = "$FRED/SHAPEFILES/2010";
   my $shapefile = "x";
-  $shapefiledir ="SHAPES";
+  $shapefiledir = "SHAPES";
   if (not -d "SHAPES") {
     # get county
     open FH, "FIPS";

@@ -6,7 +6,7 @@ use Geo::ShapeFile;
 use Getopt::Long;
 
 my $usage = "usage: $0 shapefile outdir\n"; 
-my ($file, $outdir) = @ARGV;
+my ($file, $outdir) = ("RESULTS/JOB/13/DATA/OUT/VIS/run1/dis0/MAPS/SHAPES/tl_2010_42003_tract10.shp", "RESULTS/JOB/13/DATA/OUT/VIS/run1/dis0/MAPS/SHAPES/");#@ARGV;
 die $usage if not $file;
 die $usage if not $outdir;
 my $shapefile = new Geo::ShapeFile($file) or die "ERROR reading file $file\n";

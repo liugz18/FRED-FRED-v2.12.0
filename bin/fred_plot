@@ -11,7 +11,7 @@ my $FREDRESULTS = $ENV{FRED_RESULTS};
 $FREDRESULTS = "$ENV{FRED_HOME}/RESULTS" if not $FREDRESULTS;
 
 my $gnuplot = $ENV{FRED_GNUPLOT};
-die "$0: no gnuplot\n" if (not $gnuplot or (not -x $gnuplot));
+die "$0: no gnuplot\n" if not $gnuplot;#if (not $gnuplot or (not -x $gnuplot));
 
 my $commandline = "fred_plot @ARGV";
 my @data = ();
@@ -48,7 +48,7 @@ my $xmin = "0";
 my $xmax = "*";
 my $ymin = "0";
 my $ymax = "*";
-my $display = 1;
+my $display = 0;
 my $errorbars;
 my $title = "FRED Simulation";
 my $weekly;
@@ -237,10 +237,10 @@ my $titlefontsize = $fontsize + 4;
 my $terminal;
 open FH, ">$pltfile";
 if ($make_png == 1) {
-  $terminal = "png font '$font,$fontsize' linewidth 1";
+  $terminal = "png font '$font,$fontsize' linewidth 0.5";
 }
 else {
-  $terminal = "pdf font '$font,$fontsize' linewidth 3 size 7,5";
+  $terminal = "pdf font '$font,$fontsize' linewidth 0.5 size 7,5";
 }
 
 my $setkey = "set key at graph 0.96, graph 0.96 right";
@@ -349,7 +349,7 @@ print FH "$_\n" for @data;
 print FH "\n";
 close FH;
 system "chmod +x $pltfile";
-system ($pltfile);
+system "gnuplot $pltfile";
 print "fred_plot: source_file = $pltfile  image_file = $outfile\n";
 system ("open $outfile") if $display;
 exit;

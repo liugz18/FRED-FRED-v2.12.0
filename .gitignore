@@ -5,3 +5,8 @@ _*
 *.asm
 *.sym
 *.img
+*.png
+*.pdf
+/RESULTS/
+/tests/
+*.plt

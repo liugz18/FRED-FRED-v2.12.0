@@ -25,6 +25,10 @@ class GAIA:
 
     def call(self):
         httpConn = httplib.HTTPConnection(self.confInfo.serverURL,self.confInfo.serverPort,True)
+        
+        # self.confInfo.serverURL = "localhost"
+        self.confInfo.serverPort = 0
+        print "%s %s"%(self.confInfo.serverURL, self.confInfo.serverPort)
         if self.confInfo.debug:
             httpConn.set_debuglevel(2)
         httpConn.connect()

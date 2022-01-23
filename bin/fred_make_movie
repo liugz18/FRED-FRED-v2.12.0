@@ -164,7 +164,8 @@ chdir $outdir;
 
 my $command = "fred_make_maps --api_key $api_key --census_tracts $census_tracts --country $country --disease $disease_id --filled $filled --key $key --max $max --parallelism $parallelism --run $run --term $term --title '$title' --subtitle '$subtitle' --households $show_all_households --incidence $show_incidence --infectious $show_infectious --recovered $show_recovered --hc_unav $show_hc_unav --hc_deficit $show_hc_deficit --primary_hc_unav $show_primary_hc_unav --accept_insr_hc_unav $show_accept_insr_hc_unav --hazel $hazel --lw $linewidth -x $xmin -X $xmax -y $ymin -Y $ymax --grid $grid --border $border --start $start --interval $interval --google $google --shapefile $shapefile --lightness $lightness --point_size $point_size --finish $finish --cf $case_fatalities --tcf $total_case_fatalities";
 
-# print "$command\n"; exit;
+print "$command\n"; 
+# exit;
 
 system $command;
 chdir "VIS/run$run/dis$disease_id/MAPS";
