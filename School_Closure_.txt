@@ -1,0 +1,14 @@
+## File: School_Closure_.txt
+## Created: Sun Jan 23 20:32:22 2022
+Title: School_Closure_
+Cases [1 5 10]
+##
+Output Variables:
+Serologic Attack Rate
+Clinical Attack Rate
+Incidents
+Clinical Incidents
+Reproductive Rate
+
+EOF##
+##

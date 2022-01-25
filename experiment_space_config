@@ -1,0 +1,15 @@
+FRED Experiment Space Title: School_Closure
+Baseline Parameter File: params
+Sweep Parameters:
+# Name: R0 Min: 1.0 Max: 3.5 Inc: 0.5  Format: %0.1f
+Name: Cases Values: [1, 5, 10]
+# Name: Weeks Values: [0, 1, 2, 4, 6, 8]
+
+Output Variables:
+Serologic Attack Rate
+Clinical Attack Rate
+Incidents
+Clinical Incidents
+Reproductive Rate
+
+EOF

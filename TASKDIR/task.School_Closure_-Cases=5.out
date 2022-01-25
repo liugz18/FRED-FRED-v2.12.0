@@ -1,0 +1,4 @@
+task.School_Closure_-Cases=5 STARTED Sun Jan 23 21:10:03 CST 2022
+/mnt/g/GRADE3-2/UnderThesis/Code/FRED-FRED-v2.12.0/bin/fred_delete: KEY = School_Closure_-Cases=5  JOB = 20
+/mnt/g/GRADE3-2/UnderThesis/Code/FRED-FRED-v2.12.0/bin/fred_delete: /mnt/g/GRADE3-2/UnderThesis/Code/FRED-FRED-v2.12.0/RESULTS/JOB/20 deleted
+School_Closure_-Cases=5 23
