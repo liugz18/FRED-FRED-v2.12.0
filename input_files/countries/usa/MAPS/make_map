@@ -39,7 +39,8 @@ if (!exists("use_shapefile")) {
   use_shapefile = 1
 }
 if (!exists("shapefile_dir")) {
-  shapefile_dir = "/Users/gref/FRED/input_files/countries/usa/SHAPES"
+  # shapefile_dir = "/Users/gref/FRED/input_files/countries/usa/SHAPES"
+  shapefile_dir = "/../SHAPES"
 }
 # print "shapefile_dir = " . shapefile_dir . " fipsfile = " . fipsfile
 

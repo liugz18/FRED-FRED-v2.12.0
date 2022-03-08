@@ -1,4 +1,4 @@
-#!/usr/local/bin/gnuplot
+#!/usr/bin/gnuplot
 
 # default parameters
 
@@ -90,6 +90,7 @@ if (!exists("infectious_households")) {
   infectious_households = "infectious_households.txt"
 }
 if (!exists("recovered_households")) {
+  print "!!!!!!"
   recovered_households = "recovered_households.txt"
 }
 if (!exists("case_fatalities_households")) {
@@ -99,7 +100,8 @@ if (!exists("total_case_fatalities_households")) {
   total_case_fatalities_households = "total_case_fatalities_households.txt"
 }
 if (!exists("fipsfile")) {
-  fipsfile = "FIPS"
+  # fipsfile = "FIPS"
+  fipsfile = "input_files/countries/usa/MAPS/FIPS"
 }
 if (!exists("pctfile")) {
   valuefile = "PCT"
@@ -109,8 +111,9 @@ if (!exists("use_shapefile")) {
 }
 if (!exists("shapefile_dir")) {
   shapefile_dir = "SHAPES"
+  # shapefile_dir = "input_files/countries/usa/SHAPES"
 }
-# print "shapefile_dir = " . shapefile_dir . " fipsfile = " . fipsfile
+print "shapefile_dir = " . shapefile_dir . " fipsfile = " . fipsfile
 if (!exists("show_grid")) {
    show_grid = 0
 }
@@ -196,17 +199,17 @@ else {
  yrng = ymax - ymin
  
  # add some space on each side
- xmin = xmin - 0.075*xrng
- xmax = xmax + 0.075*xrng
- ymin = ymin - 0.025*yrng
- ymax = ymax + 0.025*yrng
+#  xmin = xmin - 0.075*xrng
+#  xmax = xmax + 0.075*xrng
+#  ymin = ymin - 0.025*yrng
+#  ymax = ymax + 0.025*yrng
  print xmin, xmax, ymin, ymax
  
  if (force_xmin) { xmin = force_xmin }
  if (force_xmax) { xmax = force_xmax }
  if (force_ymin) { ymin = force_ymin }
  if (force_ymax) { ymax = force_ymax }
- # print xmin, xmax, ymin, ymax
+ print sprintf("xmin:%f  xmax:%f  %f  %f", xmin, xmax, ymin, ymax)
 
  # earth geometry
  km_per_deg_lat = 111.325

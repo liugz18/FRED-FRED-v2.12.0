@@ -1,0 +1,11 @@
+
+echo -n "task.School_Closure_-Cases=1 STARTED "
+date
+fred_delete -f -k School_Closure_-Cases=1
+fred_job -k School_Closure_-Cases=1 -p PARAMDIR/params.School_Closure_-Cases=1 -n 10  -m 10
+if ( -e collect_task_data ) then
+./collect_task_data School_Closure_-Cases=1
+endif
+echo -n "task.School_Closure_-Cases=1 FINISHED "
+date
+EOF

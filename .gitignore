@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *~
 _*
 *.o
@@ -9,3 +10,17 @@ _*
 *.pdf
 *.plt
 *.png
+=======
+*~
+_*
+*.o
+*.d
+*.asm
+*.sym
+*.img
+*.png
+*.pdf
+/RESULTS/
+/tests/
+*.plt
+>>>>>>> combine_fail

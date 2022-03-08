@@ -21,10 +21,11 @@ class FRED:
             self.results_dir = self.assign_directory(self.home_dir + "/RESULTS")
         self.results_key_file = self.assign_directory(self.results_dir + "/KEY")
         self.results_job_dir = self.assign_directory(self.results_dir + "/JOB")
-        
+        print "%s"%self.results_key_file
         self.key_dict = dict()
         with open(self.results_key_file,"r") as f:
             for key_pair in f:
+                print "%s"%key_pair
                 self.key_dict[string.split(key_pair)[0]] = string.split(key_pair)[1]
 
         #print self.key_dict
@@ -82,10 +83,10 @@ class FRED_RUN:
         self.user = self.get_meta_variable("USER")
 
         # Store the contents of the log file by line
-        self.meta_log_file = list()
-        with open(self.run_meta_dir + "/LOG","r") as f:
-            for line in f:
-                self.meta_log_file.append(line)
+        # self.meta_log_file = list()
+        # with open(self.run_meta_dir + "/LOG","r") as f:
+        #     for line in f:
+        #         self.meta_log_file.append(line)
         
         # Create a dict of the fred parameters (may have to make more robust if needed)
         self.run_params_file = self.run_meta_dir + "/PARAMS"
