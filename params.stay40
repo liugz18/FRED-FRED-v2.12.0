@@ -1,0 +1,6 @@
+days = 100
+influenza_transmissibility = 1
+enable_visualization_layer = 1
+household_visualization_mode = 1
+census_tract_visualization_mode = 1
+sick_day_prob = 0.4
