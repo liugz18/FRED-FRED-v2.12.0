@@ -890,14 +890,14 @@ double Health::get_transmission_modifier_due_to_hygiene(int disease_id) {
 
 double Health::get_susceptibility_modifier_due_to_hygiene(int disease_id) {
   Disease* disease = Global::Diseases.get_disease(disease_id);
-  /*
-    if (this->is_wearing_face_mask() && this->is_washing_hands()) {
-    return (1.0 - disease->get_face_mask_plus_hand_washing_susceptibility_efficacy());
-    }
-    if (this->is_wearing_face_mask()) {
-    return (1.0 - disease->get_face_mask_susceptibility_efficacy());
-    }
-  */
+  
+  if (this->is_wearing_face_mask() && this->is_washing_hands()) {
+  return (1.0 - disease->get_face_mask_plus_hand_washing_susceptibility_efficacy());
+  }
+  if (this->is_wearing_face_mask()) {
+  return (1.0 - disease->get_face_mask_susceptibility_efficacy());
+  }
+  
   if(this->is_washing_hands()) {
     return (1.0 - disease->get_hand_washing_susceptibility_efficacy());
   }

@@ -1965,6 +1965,7 @@ void Epidemic::spread_infection_in_active_places(int day) {
   FRED_VERBOSE(0, "spread_infection__active_places day %d\n", day);
   for(int i = 0; i < this->active_place_vec.size(); ++i) {
     Place* place = this->active_place_vec[i];
+    // printf(this->disease->get_transmission());
     this->disease->get_transmission()->spread_infection(day, this->id, place);
     place->clear_infectious_people(this->id);
   }

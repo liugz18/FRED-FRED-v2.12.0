@@ -1,6 +1,7 @@
 enable_visualization_layer = 1
 household_visualization_mode = 1
 census_tract_visualization_mode = 1
+verbose = 1
 
 ##########################################################
 #
@@ -9,7 +10,7 @@ census_tract_visualization_mode = 1
 ##########################################################
 
 # Length of each run
-days = 150
+days = 100
 
 # Simulation start date in the format 'YYYY-MM-DD'
 start_date = 2012-01-02
@@ -128,9 +129,9 @@ min_travel_distance = 100.0
 #
 ##########################################################
 
-# school_closure_policy = none
+school_closure_policy = none
 # school_closure_policy = global
-school_closure_policy = individual
+# school_closure_policy = individual
 
 # number of days to keep a school closed
 school_closure_duration = 60
@@ -201,3 +202,12 @@ vaccine_dose_efficacy_values[0][0] = 1 0.70
 vaccine_dose_efficacy_delay_age_groups[0][0] = 1 100
 vaccine_dose_efficacy_delay_values[0][0] = 1 14
 vaccine_strains[0] = 0
+
+
+##########################################################
+#
+# Density Transmission Model (OPTIONAL)
+#
+##########################################################
+
+enable_neighborhood_density_transmission = 1
