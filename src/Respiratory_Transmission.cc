@@ -151,10 +151,10 @@ bool Respiratory_Transmission::attempt_transmission(double transmission_prob, Pe
 
   // reduce transmission probability due to infector's hygiene (face masks or hand washing)
   transmission_prob *= infector->get_transmission_modifier_due_to_hygiene(disease_id);
-
+  FRED_VERBOSE(1, "get_transmission_modifier_due_to_hygiene = %f %f\n", infector->get_transmission_modifier_due_to_hygiene(disease_id), infectee->get_susceptibility_modifier_due_to_hygiene(disease_id));
   // reduce susceptibility due to infectee's hygiene (face masks or hand washing)
   susceptibility *= infectee->get_susceptibility_modifier_due_to_hygiene(disease_id);
-    
+
   if(Global::Enable_hh_income_based_susc_mod) {
     int hh_income = Household::get_max_hh_income(); //Default to max (no modifier)
     Household* hh = static_cast<Household*>(infectee->get_household());
@@ -280,6 +280,8 @@ void Respiratory_Transmission::default_transmission_model(int day, int disease_i
           attempt_transmission(transmission_prob, infector, infectee, disease_id, day, place);
         }
       }
+      FRED_VERBOSE(0, "default_transmission DAY %d PLACE %s N %d,  inf %d try to infect susc %d, contact_count %d\n",
+	             day, place->get_label(), N, infector->get_id(), infectee->get_id(), contact_count);
     } // end contact loop
   } // end infectious list loop
   place->reset_place_state(disease_id);
@@ -293,12 +295,12 @@ void Respiratory_Transmission::pairwise_transmission_model(int day, int disease_
 
   double contact_prob = place->get_contact_rate(day, disease_id);
   
-  FRED_VERBOSE(1, "pairwise_transmission DAY %d PLACE %s N %d\n",
-	       day, place->get_label(), place->get_size());
+  FRED_VERBOSE(1, "pairwise_transmission DAY %d PLACE %s N %d inf %d sus %d\n",
+	       day, place->get_label(), place->get_size(), (int) infectious->size(), (int) susceptibles->size());
   
   for(int infector_pos = 0; infector_pos < infectious->size(); ++infector_pos) {
     Person* infector = (*infectious)[infector_pos];      // infectious individual
-    // FRED_VERBOSE(1, "pairwise_transmission DAY %d PLACE %s infector %d is %d\n", day, place->get_label(), infector_pos, infector->get_id());
+    FRED_VERBOSE(1, "pairwise_transmission DAY %d PLACE %s infector %d is %d\n", day, place->get_label(), infector_pos, infector->get_id());
     
     if(infector->is_infectious(disease_id) == false) {
       FRED_VERBOSE(1, "pairwise_transmission DAY %d PLACE %s infector %d is not infectious!\n",

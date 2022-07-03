@@ -94,21 +94,6 @@ office_size = 50
 # There will always be one additional grouping from the max listed to MAX_INT
 workplace_size_max = 0
 
-##########################################################
-#
-# SUPPORT FOR HOSPITALS (OPTIONAL)
-#
-##########################################################
-
-enable_hospitals = 0
-prob_of_visiting_hospitalized_housemate = 0.0
-hospital_fixed_staff = 20
-hospital_worker_to_bed_ratio = 1.0
-hospital_outpatients_per_day_per_employee = 3.0
-healthcare_clinic_outpatients_per_day_per_employee = 12.0;
-hospitalization_radius = 25.0
-
-enable_health_insurance = 0
 
 ##########################################################
 #
@@ -166,38 +151,3 @@ isolation_delay = 5
 # daily probability of entering isolation if symptomatic:
 isolation_rate = 0
 
-##########################################################
-#
-# VACCINATION (OPTIONAL)
-#
-##########################################################
-
-enable_vaccination = 0
-number_of_vaccines = 0
-vaccination_capacity_file = $FRED_HOME/input_files/vaccination_capacity-0.txt
-#vaccine_tracefile = vacctr
-vaccine_tracefile = none
-vaccine_prioritize_acip = 0
-vaccine_prioritize_by_age = 0
-vaccine_priority_age_low = 0
-vaccine_priority_age_high = 100
-vaccine_dose_priority = 0
-vaccine_priority_only = 0
-vaccinate_symptomatics = 0
-refresh_vaccine_queues_daily = 0
-
-## Sample Definition of Vaccine #0
-vaccine_number_of_doses[0] = 1
-vaccine_total_avail[0] = 1000000000
-vaccine_additional_per_day[0] = 1000000
-vaccine_starting_day[0] = 0
-vaccine_efficacy_duration_age_groups[0] = 1 120
-vaccine_efficacy_duration_values[0] = 1 99999
-
-#### Sample Vaccine #0 Dose #0
-vaccine_next_dosage_day[0][0] = 0
-vaccine_dose_efficacy_age_groups[0][0] = 1 100
-vaccine_dose_efficacy_values[0][0] = 1 0.70
-vaccine_dose_efficacy_delay_age_groups[0][0] = 1 100
-vaccine_dose_efficacy_delay_values[0][0] = 1 14
-vaccine_strains[0] = 0

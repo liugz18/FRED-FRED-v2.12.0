@@ -1,0 +1,13 @@
+enable_visualization_layer = 1
+household_visualization_mode = 1
+census_tract_visualization_mode = 1
+days = 100
+influenza_transmissibility = 1
+fips = 42003
+office_size = 50
+enable_travel = 1
+min_travel_distance = 100
+school_closure_policy = none
+school_closure_duration = 1
+school_summer_schedule = 1
+sick_day_prob = 0.5

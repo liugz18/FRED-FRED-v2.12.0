@@ -1,0 +1,203 @@
+enable_visualization_layer = 1
+household_visualization_mode = 1
+census_tract_visualization_mode = 1
+enable_health_charts = 0
+##########################################################
+#
+# SIMULATION SETUP PARAMETERS 
+#
+##########################################################
+
+# Length of each run
+days = 130
+
+# Simulation start date in the format 'YYYY-MM-DD'
+start_date = 2012-01-02
+
+# Seed for RNG
+seed = 123456
+
+# Size of large-scale grid patches in km
+regional_patch_size = 20.0
+# size of neighborhood patches in km
+neighborhood_patch_size = 1.0
+
+influenza_transmissibility = 0.54
+
+##########################################################
+#
+# POPULATION PARAMETERS 
+#
+##########################################################
+
+fips = 42063
+
+
+##########################################################
+#
+# EPIDEMIC INITIALIZATION PARAMETERS
+#
+##########################################################
+
+
+
+
+##########################################################
+#
+# PLACE PARAMETERS
+#Using the default
+#parameters, 50% of the time the neighborhood is the cell surrounding the household, and 10% of the time it is
+#a random cell within 20km of home. The other 40% are distributed uniformly in the 8 cells immediately
+#surrounding the home cell.
+##########################################################
+
+# Neighborhood Activities
+community_distance = 20
+community_prob = 0.1
+home_neighborhood_prob = 0.5
+
+#### Neighborhood transmission gravity model:
+enable_neighborhood_gravity_model = 0
+
+
+##########################################################
+#
+# SCHOOL SETUP PARAMETERS 
+#
+##########################################################
+
+# max size per classroom
+school_classroom_size = 40
+
+# set to 1 if schools closed during summer
+school_summer_schedule = 0
+
+# summer closure dates (format MM-DD)
+school_summer_start = 06-01
+school_summer_end = 08-31
+
+# if set, then each school within the region is assigned teachers
+# by recruiting workers from a nearby workplace
+assign_teachers = 1
+school_fixed_staff = 5
+# from: http://www.statemaster.com/graph/edu_ele_sec_pup_rat-elementary-secondary-pupil-teacher-ratio
+school_student_teacher_ratio = 15.5
+
+##########################################################
+#
+# WORKPLACE SETUP PARAMETERS 
+#
+##########################################################
+
+office_size = 50
+# The workplace size max is used to group workplaces into categories based on the max number of employees. 
+# There will always be one additional grouping from the max listed to MAX_INT
+workplace_size_max = 0
+
+##########################################################
+#
+# SUPPORT FOR HOSPITALS (OPTIONAL)
+#
+##########################################################
+
+enable_hospitals = 0
+prob_of_visiting_hospitalized_housemate = 0.0
+hospital_fixed_staff = 20
+hospital_worker_to_bed_ratio = 1.0
+hospital_outpatients_per_day_per_employee = 3.0
+healthcare_clinic_outpatients_per_day_per_employee = 12.0;
+hospitalization_radius = 25.0
+
+enable_health_insurance = 0
+
+##########################################################
+#
+# TRAVEL PARAMETERS (OPTIONAL)
+#
+##########################################################
+
+# Long-distance Overnight Travel: 
+enable_travel = 0
+
+# distance threshold for overnight trips (in km)
+min_travel_distance = 100.0
+
+##########################################################
+#
+# SCHOOL CLOSURE POLICIES
+#
+##########################################################
+
+school_closure_policy = none
+# school_closure_policy = global
+# school_closure_policy = individual
+
+# number of days to keep a school closed
+school_closure_duration = 60
+
+##########################################################
+#
+# PERSONAL HYGIENE BEHAVIORS (OPTIONAL)
+#
+##########################################################
+
+enable_face_mask_usage = 1
+face_mask_compliance = 1
+days_to_wear_face_masks = 8
+face_mask_transmission_efficacy = 0.9
+face_mask_susceptibility_efficacy = 0.9
+
+enable_hand_washing = 0
+hand_washing_compliance = 1
+influenza_hand_washing_transmission_efficacy = 0.21
+influenza_hand_washing_susceptibility_efficacy = 0.21
+influenza_face_mask_plus_hand_washing_transmission_efficacy = 0.33
+influenza_face_mask_plus_hand_washing_susceptibility_efficacy = 0.33
+
+##########################################################
+#
+# ISOLATION OF SYMPTOMATICS  
+#
+##########################################################
+
+enable_isolation = 0
+# days after becoming symptomatic when isolation may occur:
+isolation_delay = 1
+# daily probability of entering isolation if symptomatic:
+isolation_rate = 0.5
+
+##########################################################
+#
+# VACCINATION (OPTIONAL)
+#
+##########################################################
+
+enable_vaccination = 0
+number_of_vaccines = 0
+vaccination_capacity_file = $FRED_HOME/input_files/vaccination_capacity-0.txt
+#vaccine_tracefile = vacctr
+vaccine_tracefile = none
+vaccine_prioritize_acip = 0
+vaccine_prioritize_by_age = 0
+vaccine_priority_age_low = 0
+vaccine_priority_age_high = 100
+vaccine_dose_priority = 0
+vaccine_priority_only = 0
+vaccinate_symptomatics = 0
+refresh_vaccine_queues_daily = 0
+
+## Sample Definition of Vaccine #0
+vaccine_number_of_doses[0] = 1
+vaccine_total_avail[0] = 1000000000
+vaccine_additional_per_day[0] = 1000000
+vaccine_starting_day[0] = 0
+vaccine_efficacy_duration_age_groups[0] = 1 120
+vaccine_efficacy_duration_values[0] = 1 99999
+
+#### Sample Vaccine #0 Dose #0
+vaccine_next_dosage_day[0][0] = 0
+vaccine_dose_efficacy_age_groups[0][0] = 1 100
+vaccine_dose_efficacy_values[0][0] = 1 0.70
+vaccine_dose_efficacy_delay_age_groups[0][0] = 1 100
+vaccine_dose_efficacy_delay_values[0][0] = 1 14
+vaccine_strains[0] = 0

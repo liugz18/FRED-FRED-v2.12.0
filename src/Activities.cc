@@ -313,7 +313,7 @@ void Activities::initialize_sick_leave() {
     FRED_VERBOSE(0, "Activities::initialize_sick_leave size_leave_avaliable = %d\n",
 		             (this->sick_leave_available ? 1 : 0));
   }
-  FRED_VERBOSE(0, "Activities::initialize_sick_leave sick_days_remaining = %d\n", this->sick_days_remaining);
+  FRED_VERBOSE(1, "Activities::initialize_sick_leave sick_days_remaining = %d\n", this->sick_days_remaining);
 }
 
 void Activities::before_run() {
